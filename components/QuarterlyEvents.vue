@@ -1,6 +1,6 @@
 <template>
   <section class="pb-24">
-    <div class="text-center mb-8">
+    <div class="text-center mb-8 scroll-reveal">
       <h2 class="font-black mb-6" style="color: #0093ae; font-size: 2.5rem; letter-spacing: 0.12em">全年活動</h2>
 
 
@@ -22,7 +22,7 @@
             <div
               v-for="event in quarter.events"
               :key="event.id"
-              class="bg-[#FFF9C7] rounded-3xl overflow-hidden mb-8 last:mb-0"
+              class="bg-[#FFF9C7] rounded-3xl overflow-hidden mb-8 last:mb-0 scroll-reveal-left"
             >
               <div
                 :class="`relative w-full ${event.expanded ? 'h-64' : 'h-48 md:h-64'} rounded-3xl overflow-hidden group`"

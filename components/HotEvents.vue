@@ -1,14 +1,14 @@
 <template>
   <section class="pb-20">
-    <div class="text-center mb-10">
+    <div class="text-center mb-10 scroll-reveal">
       <h2 class="text-3xl md:text-4xl font-black text-jw-teal tracking-wider">熱門活動</h2>
     </div>
 
     <div class="grid grid-cols-1 md:grid-cols-3 gap-6" style="margin-left: 14%; margin-right: 14%">
       <div
-        v-for="event in HOT_EVENTS"
+        v-for="(event, index) in HOT_EVENTS"
         :key="event.id"
-        class="group relative rounded-3xl overflow-hidden aspect-[4/3] shadow-lg transform hover:scale-[1.02] transition-all duration-300"
+        :class="`group relative rounded-3xl overflow-hidden aspect-[4/3] shadow-lg transform hover:scale-[1.02] transition-all duration-300 scroll-reveal-scale scroll-reveal-delay-${index + 1}`"
       >
         <!-- Background Image with overlay -->
         <div
