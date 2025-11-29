@@ -20,8 +20,8 @@ export default defineNuxtPlugin((nuxtApp) => {
                     });
                 },
                 {
-                    threshold: 0.1, // 當 10% 的元素可見時觸發
-                    rootMargin: '0px 0px -50px 0px', // 提前 50px 觸發動畫
+                    threshold: 0.01,
+                    rootMargin: '0px 0px 1000px 0px', // 極限提早觸發：在元素還在下方 1000px 時就開始動畫
                 }
             );
 

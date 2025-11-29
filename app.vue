@@ -20,7 +20,7 @@
 /* 滾動顯示特效 - 初始狀態 */
 .scroll-reveal {
   opacity: 0;
-  transform: translateY(30px);
+  transform: translateY(250px);
   transition: opacity 0.8s ease-out, transform 0.8s ease-out;
 }
 
@@ -57,8 +57,8 @@
 /* 縮放效果 */
 .scroll-reveal-scale {
   opacity: 0;
-  transform: scale(0.9);
-  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+  transform: scale(0.5);
+  transition: opacity 0.5s ease-out, transform 0.5s ease-out;
 }
 
 .scroll-reveal-scale.revealed {
@@ -72,14 +72,14 @@
 }
 
 .scroll-reveal-delay-2 {
-  transition-delay: 0.2s;
+  transition-delay: 0.15s;
 }
 
 .scroll-reveal-delay-3 {
-  transition-delay: 0.3s;
+  transition-delay: 0.25s;
 }
 
 .scroll-reveal-delay-4 {
-  transition-delay: 0.4s;
+  transition-delay: 0.35s;
 }
 </style>
