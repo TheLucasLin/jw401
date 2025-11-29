@@ -48,6 +48,7 @@
 <script setup lang="ts">
 import { HOT_EVENTS } from "~/utils/constants";
 const applyGolf = (id: string) => {
-  console.log("Apply Golf clicked", id);
+  // Logic for applying to golf event
 };
+
 </script>

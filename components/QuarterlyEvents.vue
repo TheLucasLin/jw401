@@ -3,39 +3,7 @@
     <div class="text-center mb-8">
       <h2 class="font-black mb-6" style="color: #0093ae; font-size: 2.5rem; letter-spacing: 0.12em">全年活動</h2>
 
-      <!-- Filter Tabs -->
-      <div
-        class="flex justify-center mb-8"
-        style="background: #fef7d0; border-radius: 2rem; padding: 0 0; gap: 2rem; width: fit-content; margin: auto"
-      >
-        <button
-          @click="activeTab = 'all'"
-          :class="`w-40 px-8 py-4 rounded-full text-xl font-bold transition-all mx-0 ${
-            activeTab === 'all' ? 'bg-[#44c2c6] text-white shadow' : 'hover:opacity-100 text-[#0093AE]'
-          }`"
-          style="border: none; outline: none"
-        >
-          全部
-        </button>
-        <button
-          @click="activeTab = 'internal'"
-          :class="`w-40 px-8 py-4 rounded-full text-xl font-bold transition-all mx-0 ${
-            activeTab === 'internal' ? 'bg-[#44c2c6] text-white shadow' : 'hover:opacity-100 text-[#0093AE] '
-          }`"
-          style="border: none; outline: none; margin-left: -1.5rem; margin-right: -1.5rem; z-index: 2"
-        >
-          內部活動
-        </button>
-        <button
-          @click="activeTab = 'external'"
-          :class="`w-40 px-8 py-4 rounded-full text-xl font-bold transition-all mx-0 ${
-            activeTab === 'external' ? 'bg-[#44c2c6] text-white shadow' : 'hover:opacity-100 text-[#0093AE]'
-          }`"
-          style="border: none; outline: none"
-        >
-          外部活動
-        </button>
-      </div>
+
     </div>
 
     <div style="margin-left: 14%; margin-right: 14%">
@@ -153,7 +121,7 @@ import { QUARTERS_DATA } from "~/utils/constants";
 import type { QuarterSection } from "~/utils/types";
 
 const quarters = ref<QuarterSection[]>(QUARTERS_DATA);
-const activeTab = ref<"all" | "internal" | "external">("all");
+
 // 圖片輪播 index 狀態
 const carouselIndexes = ref<Record<string, number>>({});
 
@@ -246,7 +214,7 @@ const expandEvent = (quarterId: string, eventId: string) => {
   });
 };
 const applyEvent = (id: string) => {
-  console.log("Apply Event clicked", id);
+  // Logic for applying to event
 };
 </script>
 <style scoped>
