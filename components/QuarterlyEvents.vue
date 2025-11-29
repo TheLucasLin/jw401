@@ -1,9 +1,7 @@
 <template>
   <section class="pb-24">
     <div class="text-center mb-8 scroll-reveal">
-      <h2 class="font-black mb-6" style="color: #0093ae; font-size: 2.5rem; letter-spacing: 0.12em">全年活動</h2>
-
-
+      <h2 class="quarterly-events-title">全年活動</h2>
     </div>
 
     <div style="margin-left: 14%; margin-right: 14%">
@@ -218,6 +216,26 @@ const applyEvent = (id: string) => {
 };
 </script>
 <style scoped>
+@font-face {
+  font-family: 'Mantou Sans';
+  src: url('~/assets/MantouSans-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+}
+
+.quarterly-events-title {
+  font-family: 'Mantou Sans';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 40px;
+  line-height: 87px;
+  display: flex;
+  align-items: center;
+  color: #0093AE;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+}
+
 .fade-expand-enter-active,
 .fade-expand-leave-active {
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);

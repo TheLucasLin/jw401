@@ -1,7 +1,7 @@
 <template>
   <section class="py-20 bg-[#F4F0D6]">
     <div class="text-center mb-12">
-      <h2 class="text-3xl md:text-4xl font-black text-jw-teal tracking-wider">40週年精彩回顧</h2>
+      <h2 class="gallery-title">40週年精彩回顧</h2>
     </div>
 
     <div class="grid grid-cols-1 md:grid-cols-3 gap-2" style="margin-left: 14%; margin-right: 14%">
@@ -35,3 +35,24 @@
 <script setup lang="ts">
 import { GALLERY_IMAGES } from "~/utils/constants";
 </script>
+
+<style scoped>
+@font-face {
+  font-family: 'Mantou Sans';
+  src: url('~/assets/MantouSans-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+}
+
+.gallery-title {
+  font-family: 'Mantou Sans';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 40px;
+  line-height: 87px;
+  display: flex;
+  align-items: center;
+  color: #0093AE;
+  justify-content: center;
+}
+</style>
