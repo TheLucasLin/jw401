@@ -1,0 +1,56 @@
+# Nuxt 3 & Vue 專案 .gitignore
+# Node.js 相關
+
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# Nuxt 3 產生的檔案
+.nuxt/
+output/
+.output/
+dist/
+dist-ssr/
+
+# VS Code 設定
+.vscode/*
+!.vscode/extensions.json
+
+# 環境設定
+.env
+.env.*
+
+# MacOS 系統檔案
+.DS_Store
+
+# 日誌與暫存
+*.log
+*.tmp
+logs/
+
+# 其他常見忽略
+.idea
+*.sublime-workspace
+*.sublime-project
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# 靜態資源編譯產物
+*.local
+
+# 依需求可加入
+coverage/
+
+# 依 Nuxt 官方建議
+*.lock
+
+# 依 Vue 官方建議
+*.bak
+
+# 依專案結構可調整
