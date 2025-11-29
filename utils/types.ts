@@ -22,6 +22,8 @@ export interface QuarterlyEvent {
   description?: string;
   buttonLabel?: string;
   expanded?: boolean;
+  haveData?: boolean;
+  images?: string[];
 }
 
 export interface QuarterSection {

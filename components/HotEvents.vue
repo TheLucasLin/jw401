@@ -24,6 +24,7 @@
             <span class="text-4xl font-black text-white italic drop-shadow-md">{{ event.date }}</span>
             <button
               class="bg-black text-white text-xs px-4 py-2 rounded-full font-bold hover:bg-gray-800 transition-colors"
+              @click="() => applyGolf(event.id)"
             >
               報名
             </button>
@@ -39,4 +40,7 @@
 
 <script setup lang="ts">
 import { HOT_EVENTS } from "~/utils/constants";
+const applyGolf = (id: string) => {
+  console.log("Apply Golf clicked", id);
+};
 </script>
