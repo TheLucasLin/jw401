@@ -65,11 +65,7 @@
                   :style="{ backgroundImage: `url(${event.image})` }"
                 ></div>
                 <!-- Tint based on event type -->
-                <div
-                  :class="`absolute inset-0 ${
-                    parseInt(event.id.replace('e', '')) % 2 === 0 ? 'bg-jw-cyan/80' : 'bg-jw-teal/80'
-                  } mix-blend-multiply opacity-90`"
-                ></div>
+                <div :class="`absolute inset-0  mix-blend-multiply opacity-90`"></div>
                 <!-- Cute Face decoration -->
                 <div class="absolute top-4 right-20 md:block">
                   <button
@@ -118,7 +114,7 @@
                       <img
                         v-if="event.images && event.images.length > 0"
                         :src="event.images[getCarouselIndex(event.id)]"
-                        class="object-contain h-full max-w-full mx-auto transition-all duration-500"
+                        class="object-contain h-full max-w-full mx-auto transition-all duration-300"
                         alt="活動圖片"
                       />
                       <span v-else class="text-gray-400">無圖片</span>
@@ -150,7 +146,7 @@
 
 <script setup lang="ts">
 import { ChevronDown, ChevronUp } from "lucide-vue-next";
-import { onMounted, ref } from "vue";
+import { onMounted, onUnmounted, ref, watch } from "vue";
 import { QUARTERS_DATA } from "~/utils/constants";
 import type { QuarterSection } from "~/utils/types";
 
@@ -179,6 +175,16 @@ onMounted(() => {
       events,
     };
   });
+  startCarousel();
+});
+
+onUnmounted(() => {
+  stopCarousel();
+});
+
+// 若 quarters 狀態有變化，重啟輪播，確保展開狀態正確
+watch(quarters, () => {
+  startCarousel();
 });
 
 const getCarouselIndex = (eventId: string) => {
@@ -191,6 +197,30 @@ const setCarouselIndex = (eventId: string, idx: number, imagesLen: number) => {
   if (newIdx < 0) newIdx = imagesLen - 1;
   if (newIdx >= imagesLen) newIdx = 0;
   carouselIndexes.value = { ...carouselIndexes.value, [eventId]: newIdx };
+};
+
+// 自動輪播 interval
+let carouselInterval: ReturnType<typeof setInterval> | null = null;
+
+const startCarousel = () => {
+  if (carouselInterval) clearInterval(carouselInterval);
+  carouselInterval = setInterval(() => {
+    // 只針對展開的 event 做自動輪播
+    quarters.value.forEach((q) => {
+      q.events.forEach((e) => {
+        if (e.expanded && e.images && e.images.length > 1) {
+          setCarouselIndex(e.id, getCarouselIndex(e.id) + 1, e.images.length);
+        }
+      });
+    });
+  }, 3000);
+};
+
+const stopCarousel = () => {
+  if (carouselInterval) {
+    clearInterval(carouselInterval);
+    carouselInterval = null;
+  }
 };
 
 const toggleQuarter = (id: string) => {

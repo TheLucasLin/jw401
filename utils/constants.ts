@@ -48,7 +48,7 @@ export const QUARTERS_DATA: QuarterSection[] = [
         title: "感恩", // 第一段title
         titleSecond: "故事展", // 第二段title (最多兩段)
         dateRange: "03/01-12/31", // 活動日期區間
-        image: "https://picsum.photos/seed/blueballoon/800/300", // 活動圖
+        image: "https://picsum.photos/seed/g1/800/300", // 活動圖
         buttonLabel: "了解更多", // 展開活動的按鈕文字
         expanded: false, // 是否展開活動內容
         description: "", // 活動描述
@@ -60,7 +60,7 @@ export const QUARTERS_DATA: QuarterSection[] = [
         title: "嘉Bar - ",
         titleSecond: "愛你就要餵飽你",
         dateRange: "03/01-12/31",
-        image: "https://picsum.photos/seed/yellowballoon/800/300",
+        image: "https://picsum.photos/seed/g9/800/300",
         buttonLabel: "了解更多",
         expanded: true,
         description:
