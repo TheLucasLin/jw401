@@ -6,8 +6,8 @@
         class="bg-white/90 backdrop-blur-sm rounded-bl-lg rounded-br-lg px-4 py-1.5 flex items-center justify-end gap-4 text-xs text-gray-600 shadow-sm"
         style="width: 210px"
       >
-        <a href="#" class="hover:text-jw-teal transition-colors text-jw-darkTeal font-medium">加入會員</a>
-        <a href="#" class="hover:text-jw-teal transition-colors text-jw-darkTeal font-medium">會員登入</a>
+        <a href="https://www.jwcpas.com.tw/memberAdd.php" class="hover:text-jw-teal transition-colors text-jw-darkTeal font-medium">加入會員</a>
+        <a href="https://www.jwcpas.com.tw/login.php" class="hover:text-jw-teal transition-colors text-jw-darkTeal font-medium">會員登入</a>
         <button class="flex items-center gap-1 bg-gray-100 hover:bg-gray-200 rounded px-2 py-0.5 transition-colors">
           <span class="font-bold text-gray-800">中</span>
           <span class="text-gray-400">En</span>

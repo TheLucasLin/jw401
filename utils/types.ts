@@ -32,3 +32,13 @@ export interface QuarterSection {
   isOpen: boolean;
   events: QuarterlyEvent[];
 }
+
+
+export interface GallerySection {
+  id: string;
+  label: string;
+  label2?: string;
+  dateRange: string;
+  link: string;
+  image: string;
+}

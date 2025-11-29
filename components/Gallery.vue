@@ -6,13 +6,14 @@
 
     <div class="grid grid-cols-1 md:grid-cols-3 gap-2" style="margin-left: 14%; margin-right: 14%">
       <div
-        v-for="(img, idx) in GALLERY_IMAGES"
+        v-for="(events, idx) in GALLERY_IMAGES"
         :key="idx"
         class="relative rounded-2xl overflow-hidden aspect-video group cursor-pointer"
+        @click="navigateTo(events.link)"
       >
         <div
           class="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-110"
-          :style="{ backgroundImage: `url(${img})` }"
+          :style="{ backgroundImage: `url(${events.image})` }"
         ></div>
         <!-- Overlay similar to hot events -->
         <div
@@ -20,9 +21,11 @@
         ></div>
 
         <!-- Text Content -->
-        <div class="absolute inset-0 p-6 flex flex-col justify-end">
-          <h3 class="text-white text-xl font-black drop-shadow-md">高爾夫感謝盃-<br />北部場</h3>
-          <span class="text-white text-2xl font-black italic mt-1">04/05</span>
+        <div class="absolute inset-0 p-6 flex flex-col justify-between">
+          <h3 class="text-white text-xl font-black drop-shadow-md">
+            {{ events.label }}<br />{{ events.label2 }}
+          </h3>
+          <span class="text-white text-2xl font-black italic mt-1">{{ events.dateRange }}</span>
         </div>
       </div>
     </div>

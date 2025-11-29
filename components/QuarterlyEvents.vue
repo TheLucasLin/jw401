@@ -66,14 +66,6 @@
                 ></div>
                 <!-- Tint based on event type -->
                 <div :class="`absolute inset-0  mix-blend-multiply opacity-90`"></div>
-                <!-- Cute Face decoration -->
-                <div class="absolute top-4 right-20 md:block">
-                  <button
-                    class="mt-4 md:mt-0 bg-black w-28 text-white px-6 py-2 rounded-full font-bold text-sm hover:bg-gray-800 transition-colors"
-                  >
-                    報名
-                  </button>
-                </div>
 
                 <!-- Content inside Banner -->
                 <div
@@ -97,6 +89,16 @@
                     <ChevronUp v-if="event.expanded" />
                     <ChevronDown v-else />
                   </a>
+                </div>
+
+                <!-- Cute Face decoration -->
+                <div class="absolute top-4 right-20 md:block">
+                  <button
+                    class="mt-4 md:mt-0 bg-black w-28 text-white px-6 py-2 rounded-full font-bold text-sm hover:bg-gray-800 transition-colors relative z-30"
+                    @click="applyEvent(event.id)"
+                  >
+                    報名
+                  </button>
                 </div>
               </div>
 
@@ -242,6 +244,9 @@ const expandEvent = (quarterId: string, eventId: string) => {
       })),
     };
   });
+};
+const applyEvent = (id: string) => {
+  console.log("Apply Event clicked", id);
 };
 </script>
 <style scoped>

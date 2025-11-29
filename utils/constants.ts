@@ -107,11 +107,53 @@ export const QUARTERS_DATA: QuarterSection[] = [
   },
 ];
 
-export const GALLERY_IMAGES = [
-  "https://picsum.photos/seed/g1/300/200",
-  "https://picsum.photos/seed/g2/300/200",
-  "https://picsum.photos/seed/g3/300/200",
-  "https://picsum.photos/seed/g4/300/200",
-  "https://picsum.photos/seed/g5/300/200",
-  "https://picsum.photos/seed/g6/300/200",
+export const GALLERY_IMAGES: GallerySection[] = [
+  {
+    id: "g1",
+    label: "高爾夫感謝盃-",
+    label2: "北部場",
+    dateRange: "04/05",
+    link: "#",
+    image: "https://picsum.photos/seed/g1/400/300",
+  },
+  {
+    id: "g2",
+    label: "高爾夫感謝盃-",
+    label2: "中部場",
+    dateRange: "04/05",
+    link: "#",
+    image: "https://picsum.photos/seed/g2/400/300",
+  },
+  {
+    id: "g3",
+    label: "高爾夫感謝盃-",
+    label2: "南部場",
+    dateRange: "04/05",
+    link: "#",
+    image: "https://picsum.photos/seed/g3/400/300",
+  },
+  {
+    id: "g4",
+    label: "高爾夫感謝盃-",
+    label2: "南部場",
+    dateRange: "04/05",
+    link: "#",
+    image: "https://picsum.photos/seed/g4/400/300",
+  },
+  {
+    id: "g5",
+    label: "高爾夫感謝盃-",
+    label2: "南部場",
+    dateRange: "04/05",
+    link: "#",
+    image: "https://picsum.photos/seed/g5/400/300",
+  },
+  {
+    id: "g6",
+    label: "高爾夫感謝盃-",
+    label2: "南部場",
+    dateRange: "04/05",
+    link: "#",
+    image: "https://picsum.photos/seed/g6/400/300",
+  },
 ];

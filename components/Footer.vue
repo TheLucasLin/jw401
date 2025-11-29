@@ -19,9 +19,9 @@
       <!-- Middle Column (Links & Social) -->
       <div class="md:col-span-3 flex flex-col justify-between space-y-8">
         <div class="flex flex-col gap-3 text-sm opacity-90">
-          <a href="#" class="hover:text-jw-cyan transition-colors">聯絡嘉威</a>
-          <a href="#" class="hover:text-jw-cyan transition-colors">國際聯盟</a>
-          <a href="#" class="hover:text-jw-cyan transition-colors">成為嘉威人</a>
+          <a href="https://www.jwcpas.com.tw/contact2.php" class="hover:text-jw-cyan transition-colors">聯絡嘉威</a>
+          <a href="https://www.jwcpas.com.tw/partner.php" class="hover:text-jw-cyan transition-colors">國際聯盟</a>
+          <a href="https://www.jwcpas.com.tw/addint.php" class="hover:text-jw-cyan transition-colors">成為嘉威人</a>
           <a href="#" class="hover:text-jw-cyan transition-colors">網站地圖</a>
         </div>
 
