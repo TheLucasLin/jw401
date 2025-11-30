@@ -1,12 +1,12 @@
 import type { EventCard, NavLink, QuarterSection } from "./types";
 
 export const NAV_LINKS: NavLink[] = [
-  { label: "嘉威人教室", href: "#" },
-  { label: "嘉威人報報", href: "#" },
-  { label: "服務項目", href: "#" },
-  { label: "關於嘉威", href: "#", hasDropdown: true },
-  { label: "嘉威人大百科", href: "#", hasDropdown: true },
-  { label: "最新消息", href: "#" },
+  { label: "嘉威人教室", href: "https://test.jwcpas.com.tw/course" },
+  { label: "嘉威人報報", href: "https://test.jwcpas.com.tw/article" },
+  { label: "服務項目", href: "https://test.jwcpas.com.tw/service" },
+  { label: "關於嘉威", href: "https://test.jwcpas.com.tw/aboutus", hasDropdown: true },
+  { label: "嘉威人大百科", href: "https://test.jwcpas.com.tw/Jiawei-people", hasDropdown: true },
+  { label: "最新消息", href: "https://test.jwcpas.com.tw/news" },
   { label: "嘉威40", href: "#" },
 ];
 

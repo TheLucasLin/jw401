@@ -27,14 +27,14 @@
 
         <div class="flex gap-4">
           <!-- Social Icons -->
-          <a href="#" class="bg-white rounded-full p-2 hover:bg-jw-cyan transition-colors">
-            <img src="~/assets/fb.png" alt="Facebook" class="h-5 w-5" />
+          <a href="#" class="hover:bg-[#1F4E6A] transition-colors">
+            <img src="~/assets/fbWhite.svg" alt="Facebook" class="h-8 w-8" />
           </a>
-          <a href="#" class="bg-white rounded-full p-2 hover:bg-jw-cyan transition-colors">
-            <img src="~/assets/ig.png" alt="Instagram" class="h-5 w-5" />
+          <a href="#" class="hover:bg-[#1F4E6A] transition-colors">
+            <img src="~/assets/igWhite.svg" alt="Instagram" class="h-8 w-8" />
           </a>
-          <a href="#" class="bg-white rounded-full p-2 hover:bg-jw-cyan transition-colors">
-            <img src="~/assets/line.png" alt="Line" class="h-5 w-5" />
+          <a href="#" class="hover:bg-[#1F4E6A] transition-colors">
+            <img src="~/assets/lineWhite.svg" alt="Line" class="h-8 w-8" />
           </a>
         </div>
       </div>
