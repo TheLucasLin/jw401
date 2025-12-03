@@ -4,7 +4,7 @@
       <h2 class="hot-events-title">熱門活動</h2>
     </div>
 
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-6" style="margin-left: 14%; margin-right: 14%">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6" style="margin-left: 9%; margin-right: 9%">
       <div
         v-for="(event, index) in HOT_EVENTS"
         :key="event.id"

@@ -4,7 +4,7 @@
       <h2 class="quarterly-events-title">全年活動</h2>
     </div>
 
-    <div style="margin-left: 14%; margin-right: 14%">
+    <div style="margin-left: 9%; margin-right: 9%">
       <div v-for="quarter in quarters" :key="quarter.id" class="border-b border-gray-300 pb-2">
         <button
           @click="toggleQuarter(quarter.id)"
@@ -23,7 +23,7 @@
               class="bg-[#FFF9C7] rounded-3xl overflow-hidden mb-8 last:mb-0 scroll-reveal-left"
             >
               <div
-                :class="`relative w-full ${event.expanded ? 'h-64' : 'h-48 md:h-64'} rounded-3xl overflow-hidden group`"
+                class="relative w-full h-[400px] rounded-3xl overflow-hidden group"
               >
                 <!-- Background & Overlay -->
                 <div
@@ -38,7 +38,7 @@
                   class="absolute inset-0 p-6 md:p-10 flex flex-col md:flex-row justify-between items-start md:items-center text-white"
                 >
                   <div>
-                    <h3 class="text-3xl md:text-5xl font-black mb-2 leading-tight drop-shadow-sm">
+                    <h3 class="quarterly-event-title">
                       {{ event.title }}<br />{{ event.titleSecond }}
                     </h3>
                     <p class="text-2xl md:text-4xl font-black opacity-90 italic tracking-widest">
@@ -249,5 +249,15 @@ const applyEvent = (id: string) => {
 .fade-expand-leave-from {
   opacity: 1;
   transform: translateY(0) scaleY(1);
+}
+
+.quarterly-event-title {
+  font-family: 'Mantou Sans';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 96px;
+  line-height: 89px;
+  color: #FFFFFF;
+  margin-bottom: 0.5rem;
 }
 </style>

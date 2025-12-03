@@ -4,11 +4,11 @@
       <h2 class="gallery-title">40週年精彩回顧</h2>
     </div>
 
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-2" style="margin-left: 14%; margin-right: 14%">
+    <div class="flex flex-wrap gap-[10px]" style="margin-left: 9%; margin-right: 9%">
       <div
         v-for="(events, idx) in GALLERY_IMAGES"
         :key="idx"
-        class="relative rounded-2xl overflow-hidden aspect-video group cursor-pointer"
+        class="relative rounded-2xl overflow-hidden group cursor-pointer gallery-item"
         @click="navigateTo(events.link)"
       >
         <div
@@ -22,10 +22,10 @@
 
         <!-- Text Content -->
         <div class="absolute inset-0 p-6 flex flex-col justify-between">
-          <h3 class="text-white text-xl font-black drop-shadow-md">
+          <h3 class="gallery-event-title">
             {{ events.label }}<br />{{ events.label2 }}
           </h3>
-          <span class="text-white text-2xl font-black italic mt-1">{{ events.dateRange }}</span>
+          <span class="gallery-date-range">{{ events.dateRange }}</span>
         </div>
       </div>
     </div>
@@ -54,5 +54,28 @@ import { GALLERY_IMAGES } from "~/utils/constants";
   align-items: center;
   color: #0093AE;
   justify-content: center;
+}
+
+.gallery-event-title {
+  font-family: 'Mantou Sans';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 46px;
+  line-height: 53px;
+  color: #FFFFFF;
+}
+
+.gallery-date-range {
+  font-family: 'Mantou Sans';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 36px;
+  line-height: 52px;
+  color: #FFFFFF;
+}
+
+.gallery-item {
+  width: 400px;
+  height: 300px;
 }
 </style>
