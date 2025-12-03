@@ -37,18 +37,18 @@
                 <div
                   class="absolute inset-0 p-6 md:p-10 flex flex-col md:flex-row justify-between items-start md:items-center text-white"
                 >
-                  <div>
+                  <div class="flex flex-col justify-between h-full">
                     <h3 class="quarterly-event-title">
                       {{ event.title }}<br />{{ event.titleSecond }}
                     </h3>
-                    <p class="text-2xl md:text-4xl font-black opacity-90 italic tracking-widest">
+                    <p class="text-2xl md:text-4xl font-black opacity-90 italic tracking-widest" style="font-family: 'Mantou Sans';">
                       {{ event.dateRange }}
                     </p>
                   </div>
                   <a
                     v-if="event.haveData"
                     href="#"
-                    class="absolute top-[13rem] right-20 hidden md:flex items-center text-white font-bold hover:no-underline transition-colors"
+                    class="absolute top-[21rem] right-16 hidden md:flex items-center text-white font-bold hover:no-underline transition-colors"
                     @click.prevent="expandEvent(quarter.id, event.id)"
                   >
                     <span>{{ event.buttonLabel }}</span>
@@ -58,9 +58,9 @@
                 </div>
 
                 <!-- Cute Face decoration -->
-                <div class="absolute top-4 right-20 md:block">
+                <div class="absolute top-4 right-8 md:block">
                   <button
-                    class="mt-4 md:mt-0 bg-black w-28 text-white px-6 py-2 rounded-full font-bold text-sm hover:bg-gray-800 transition-colors relative z-30"
+                    class="apply-button mt-4 md:mt-0 bg-black w-[160px] text-white py-[20px] button-label rounded-full font-bold text-sm hover:bg-gray-800 transition-colors relative z-30"
                     @click="applyEvent(event.id)"
                   >
                     報名
@@ -73,9 +73,9 @@
                 <div v-if="event.expanded" class="mt-8 grid grid-cols-1 md:grid-cols-2 gap-8 px-4 pb-4">
                   <div
                     class="space-y-4 font-medium text-jw-text"
-                    style="font-size: 1.1rem; line-height: 2rem; padding-left: 44px"
+                    style="font-size: 1.1rem; line-height: 32px; padding-left: 44px"
                   >
-                    <p>{{ event.description }}</p>
+                    <p v-html="event.description"></p>
                   </div>
                   <div>
                     <div class="relative rounded-lg flex items-center justify-center h-[300px] overflow-hidden">
@@ -259,5 +259,25 @@ const applyEvent = (id: string) => {
   line-height: 89px;
   color: #FFFFFF;
   margin-bottom: 0.5rem;
+}
+.button-label{
+  font-family: 'Mantou Sans';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 35px;
+  letter-spacing: 0.1em;
+  color: #FFFFFF;
+}
+.apply-button {
+  background: black;
+  transition: all 0.3s ease;
+  border: 1px solid white;
+}
+
+.apply-button:hover {
+  background: linear-gradient(135deg, #4DD0E1 0%, #AED581 100%);
+  border: 1px solid white;
+  transform: scale(1.05);
 }
 </style>

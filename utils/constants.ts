@@ -1,19 +1,19 @@
 import type { EventCard, NavLink, QuarterSection } from "./types";
 
 export const NAV_LINKS: NavLink[] = [
+  { label: "嘉威40", href: "#" },
   { label: "嘉威人教室", href: "https://test.jwcpas.com.tw/course" },
   { label: "嘉威人報報", href: "https://test.jwcpas.com.tw/article" },
   { label: "服務項目", href: "https://test.jwcpas.com.tw/service" },
   { label: "關於嘉威", href: "https://test.jwcpas.com.tw/aboutus", hasDropdown: true },
   { label: "嘉威人大百科", href: "https://test.jwcpas.com.tw/Jiawei-people", hasDropdown: true },
   { label: "最新消息", href: "https://test.jwcpas.com.tw/news" },
-  { label: "嘉威40", href: "#" },
 ];
 
 export const HOT_EVENTS: EventCard[] = [
   {
     id: "1",
-    title: "高爾夫感謝盃-北部場",
+    title: "高爾夫感謝盃-</br>北部場",
     date: "04/05",
     location: "北部場",
     image: "https://picsum.photos/seed/golf1/400/300",
@@ -21,18 +21,18 @@ export const HOT_EVENTS: EventCard[] = [
   },
   {
     id: "2",
-    title: "高爾夫感謝盃-中部場",
+    title: "高爾夫感謝盃-</br>中部場",
     date: "04/05",
     location: "中部場",
-    image: "https://picsum.photos/seed/golf2/400/300",
+    image: "https://picsum.photos/seed/golf4/400/300",
     type: "central",
   },
   {
     id: "3",
-    title: "高爾夫感謝盃-南部場",
+    title: "高爾夫感謝盃-</br>南部場",
     date: "04/05",
     location: "南部場",
-    image: "https://picsum.photos/seed/golf3/400/300",
+    image: "https://picsum.photos/seed/golf5/400/300",
     type: "south",
   },
 ];
@@ -64,7 +64,7 @@ export const QUARTERS_DATA: QuarterSection[] = [
         buttonLabel: "了解更多",
         expanded: true,
         description:
-          "四十年的歷程，像一場長遠的比賽，講究的是穩定、策略與信任。今年，我們邀請一路相伴的夥伴，共同參與一場別具意義的高爾夫盛會 ——「揮桿同行・40 週年感恩高爾夫日」。活動將於清晨開球，在綠意盎然的球道間展開一整天的友誼競賽。無論是老朋友重逢，或新夥伴初識，我們都希望透過輕鬆愉快的揮桿時光，延續四十年的信任與合作精神。現場將設有品牌主題打卡區、精緻午宴與頒獎典禮，特別準備「感謝之桿」紀念禮，致敬每一位陪伴我們走過風雨的貴賓。",
+          "四十年的歷程，像一場長遠的比賽，講究的是穩定、策略與信任。今年，我們邀請一路相伴的夥伴，共同參與一場別具意義的高爾夫盛會 ——「揮桿同行・40 週年感恩高爾夫日」。</br>活動將於清晨開球，在綠意盎然的球道間展開一整天的友誼競賽。無論是老朋友重逢，或新夥伴初識，我們都希望透過輕鬆愉快的揮桿時光，延續四十年的信任與合作精神。現場將設有品牌主題打卡區、精緻午宴與頒獎典禮，特別準備「感謝之桿」紀念禮，致敬每一位陪伴我們走過風雨的貴賓。",
         haveData: false,
         images: [
           "https://picsum.photos/seed/g1/400/300",

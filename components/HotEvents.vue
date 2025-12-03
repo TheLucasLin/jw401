@@ -4,7 +4,7 @@
       <h2 class="hot-events-title">熱門活動</h2>
     </div>
 
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-6" style="margin-left: 9%; margin-right: 9%">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-[10px]" style="margin-left: 9%; margin-right: 9%">
       <div
         v-for="(event, index) in HOT_EVENTS"
         :key="event.id"
@@ -24,22 +24,21 @@
         <!-- Content -->
         <div class="absolute inset-0 p-6 flex flex-col justify-between z-20">
           <div>
-            <h3 class="event-title">{{ event.title }}</h3>
+            <h3 v-html="event.title" class="event-title"></h3>
           </div>
 
-          <div class="flex justify-between items-end">
-            <span class="text-4xl font-black text-white italic drop-shadow-md">{{ event.date }}</span>
+          <div class="flex justify-between items-center">
+            <span class="text-4xl font-black text-white italic drop-shadow-md" style="font-family: 'Mantou Sans';">{{ event.date }}</span>
             <button
-              class="bg-black text-white text-xs px-4 py-2 rounded-full font-bold hover:bg-gray-800 transition-colors relative z-30"
+              class="apply-button text-white rounded-full font-bold relative z-30 w-[110px] h-[60px] flex items-center justify-center"
               @click="applyGolf(event.id)"
+              style="font-family: 'Mantou Sans';font-size: 24px;"
             >
               報名
             </button>
           </div>
         </div>
 
-        <!-- Logo Watermark -->
-        <div class="absolute bottom-16 right-4 opacity-30 w-12 h-6 bg-white/50 mask-image"></div>
       </div>
     </div>
   </section>
@@ -82,5 +81,17 @@ const applyGolf = (id: string) => {
   display: flex;
   align-items: center;
   color: #FFFFFF;
+}
+
+.apply-button {
+  background: black;
+  transition: all 0.3s ease;
+  border: 1px solid white;
+}
+
+.apply-button:hover {
+  background: linear-gradient(135deg, #4DD0E1 0%, #AED581 100%);
+  border: 1px solid white;
+  transform: scale(1.05);
 }
 </style>
