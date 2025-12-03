@@ -1,7 +1,7 @@
 <template>
   <div class="min-h-screen bg-[#FCF1A1] font-sans selection:bg-jw-cyan selection:text-jw-darkTeal">
     <Header />
-    <main>
+    <main class="pt-[74px]">
       <Hero />
       <HotEvents />
       <QuarterlyEvents />

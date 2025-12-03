@@ -1,5 +1,5 @@
 <template>
-  <header class="w-full bg-[#bbf3f5] relative z-50" style="height: 74px">
+  <header class="w-full bg-[#bbf3f5] fixed top-0 z-[100]" style="height: 74px">
     <!-- Top Utility Bar -->
     <div class="w-full bg-[#bbf3f5] flex justify-end px-8" style="margin-bottom: -10px">
       <div

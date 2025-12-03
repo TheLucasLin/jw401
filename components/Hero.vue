@@ -2,21 +2,70 @@
   <div 
     ref="heroSection"
     class="pb-24" 
-    style="background: linear-gradient(180deg, #8aebed 0%, #fcf1a1 100%); min-height: 100vh;padding-top: 200px;"
+    style="background: linear-gradient(180deg, #8aebed 0%, #fcf1a1 100%); min-height: 100vh;padding-top: 160px;"
   >
     <!-- Images Container with Scroll Effect -->
+    <!-- Images and Text Container with Scroll Effect -->
     <div 
       ref="imagesContainer"
-      class="flex items-center justify-center transition-all duration-500"
+      class="flex items-center justify-center transition-all duration-500 pt-[200px]"
       :style="imagesContainerStyle"
     >
-      <img
-        ref="leftImage"
-        src="/assets/40year.png"
-        alt="JW 40th Anniversary Logo"
-        class="h-[18rem] w-auto object-contain drop-shadow-xl transition-all duration-700"
-        :style="leftImageStyle"
-      />
+      <!-- Left side: Image that fades out and moves up, replaced by text -->
+      <div class="relative" style="width: 521px; min-height: 18rem;">
+        <!-- 40 Year Logo - fades out and moves up -->
+        <img
+          ref="leftImage"
+          src="/assets/40year.png"
+          alt="JW 40th Anniversary Logo"
+          class="h-[18rem] w-auto object-contain drop-shadow-xl transition-all duration-700 absolute"
+          :style="leftImageStyle"
+        />
+        
+        <!-- Text Content - fades in and moves to image position -->
+        <div 
+          ref="textContent"
+          class="transition-all duration-1000 absolute"
+          :style="textStyle"
+        >
+          <span
+            style="
+              color: var(--JW-Blue2, #0093ae);
+              font-size: 20px;
+              font-family: Noto Sans TC;
+              font-weight: 400;
+              line-height: 38.4px;
+              letter-spacing: 1.92px;
+              word-wrap: break-word;
+            "
+            >四十年來，我們一起歡笑、努力、突破。<br />有人是夥伴，有人是客戶，有人是朋友，<br />但在我們心中，你們都有一個共通的名字<br />——</span
+          ><span
+            style="
+              color: var(--JW-Blue2, #0093ae);
+              font-size: 20px;
+              font-family: Noto Sans TC;
+              font-weight: 700;
+              line-height: 38.4px;
+              letter-spacing: 1.92px;
+              word-wrap: break-word;
+            "
+            >「嘉威人」<br /></span
+          ><span
+            style="
+              color: var(--JW-Blue2, #0093ae);
+              font-size: 20px;
+              font-family: Noto Sans TC;
+              font-weight: 400;
+              line-height: 38.4px;
+              letter-spacing: 1.92px;
+              word-wrap: break-word;
+            "
+            ><br />感謝你們的信任與相伴，讓我們的故事，<br />有了情感的厚度。</span
+          >
+        </div>
+      </div>
+      
+      <!-- Right side: Mascot with original animation -->
       <img
         ref="rightImage"
         src="/assets/40mascot_typeB_cut.png"
@@ -24,51 +73,6 @@
         class="h-[28rem] w-auto object-contain drop-shadow-xl transition-all duration-700"
         :style="rightImageStyle"
       />
-    </div>
-    
-    <!-- Description Text with Fade In Effect -->
-    <div style="width: 100%">
-      <div 
-        ref="textContent"
-        style="max-width: 521px; max-height: 277px; margin-left: 22%"
-        class="transition-all duration-1000"
-        :style="textStyle"
-      >
-        <span
-          style="
-            color: var(--JW-Blue2, #0093ae);
-            font-size: 24px;
-            font-family: Noto Sans TC;
-            font-weight: 400;
-            line-height: 38.4px;
-            letter-spacing: 1.92px;
-            word-wrap: break-word;
-          "
-          >四十年來，我們一起歡笑、努力、突破。<br />有人是夥伴，有人是客戶，有人是朋友，<br />但在我們心中，你們都有一個共通的名字<br />——</span
-        ><span
-          style="
-            color: var(--JW-Blue2, #0093ae);
-            font-size: 24px;
-            font-family: Noto Sans TC;
-            font-weight: 700;
-            line-height: 38.4px;
-            letter-spacing: 1.92px;
-            word-wrap: break-word;
-          "
-          >「嘉威人」<br /></span
-        ><span
-          style="
-            color: var(--JW-Blue2, #0093ae);
-            font-size: 24px;
-            font-family: Noto Sans TC;
-            font-weight: 400;
-            line-height: 38.4px;
-            letter-spacing: 1.92px;
-            word-wrap: break-word;
-          "
-          ><br />感謝你們的信任與相伴，讓我們的故事，<br />有了情感的厚度。</span
-        >
-      </div>
     </div>
   </div>
 </template>
@@ -87,62 +91,48 @@ const textContent = ref<HTMLElement | null>(null);
 const scrollProgress = ref(0);
 
 // 動畫階段定義
-// 階段1 (0-0.35): 吉祥物滿版顯示,logo 逐漸浮出
-// 階段2 (0.35-0.7): 兩個圖片逐漸靠近
-// 階段3 (0.7-1.0): 文字逐漸浮出
+// 階段1 (0-0.6): 吉祥物從滿版逐漸縮小，Logo 保持可見
+// 階段2 (0.6-0.85): Logo 向上滑動淡出，文字從下方淡入
+// 階段3 (0.85-1.0): 保持最終狀態
 
 // 計算左側圖片 (40年 logo) 的樣式
 const leftImageStyle = computed(() => {
-  let opacity = 0;
-  let translateX = 0;
-  let translateY = 100; // 初始在下方
-  let scale = 0.7; // 初始縮小
+  let opacity = 1;
+  let translateY = 0;
   
-  if (scrollProgress.value < 0.35) {
-    // 階段1: logo 逐漸浮出 (0 到 0.35)
-    const phase1Progress = scrollProgress.value / 0.35;
-    opacity = phase1Progress;
-    translateY = 100 * (1 - phase1Progress); // 從下方浮出
-    scale = 0.7 + 0.3 * phase1Progress; // 從 0.7 縮放到 1
-    translateX = 150; // 在中心 (準備向左移動)
-  } else if (scrollProgress.value < 0.7) {
-    // 階段2: logo 逐漸向左移動 (0.35 到 0.7)
-    const phase2Progress = (scrollProgress.value - 0.35) / 0.35;
+  if (scrollProgress.value < 0.6) {
+    // 階段1: logo 保持完全可見
     opacity = 1;
     translateY = 0;
-    scale = 1;
-    translateX = 150 - 150 * phase2Progress; // 從中心移動到左側
+  } else if (scrollProgress.value < 0.85) {
+    // 階段2: logo 向上移動並淡出 (0.6 到 0.85)
+    const phase2Progress = (scrollProgress.value - 0.6) / 0.25;
+    opacity = 1 - phase2Progress; // 從 1 淡出到 0
+    translateY = -150 * phase2Progress; // 向上移動 150px
   } else {
-    // 階段3: 保持最終位置
-    opacity = 1;
-    translateY = 0;
-    scale = 1;
-    translateX = 0;
+    // 階段3: 完全隱藏
+    opacity = 0;
+    translateY = -150;
   }
   
   return {
     opacity: opacity,
-    transform: `translateX(${translateX}px) translateY(${translateY}px) scale(${scale})`,
+    transform: `translateY(${translateY}px)`,
   };
 });
 
 // 計算右側圖片 (吉祥物) 的樣式
 const rightImageStyle = computed(() => {
   let translateX = 0;
-  let scale = 2.0; // 初始放大,滿版效果
+  let scale = 3.0; // 初始放大,滿版效果
   
-  if (scrollProgress.value < 0.35) {
-    // 階段1: 吉祥物從滿版逐漸縮小 (0 到 0.35)
-    const phase1Progress = scrollProgress.value / 0.35;
-    scale = 2.0 - 1.0 * phase1Progress; // 從 2.0 縮放到 1.0
-    translateX = -150; // 在中心 (準備向右移動)
-  } else if (scrollProgress.value < 0.7) {
-    // 階段2: 吉祥物逐漸向右移動 (0.35 到 0.7)
-    const phase2Progress = (scrollProgress.value - 0.35) / 0.35;
-    scale = 1.0;
-    translateX = -150 + 150 * phase2Progress; // 從中心移動到右側
+  if (scrollProgress.value < 0.25) {
+    // 階段1: 吉祥物從滿版逐漸縮小 (0 到 0.25)
+    const phase1Progress = scrollProgress.value / 0.25;
+    scale = 3.0 - 2.0 * phase1Progress; // 從 3.0 縮放到 1.0
+    translateX = 0;
   } else {
-    // 階段3: 保持最終位置
+    // 階段2-4: 保持最終大小
     scale = 1.0;
     translateX = 0;
   }
@@ -154,7 +144,7 @@ const rightImageStyle = computed(() => {
 
 const imagesContainerStyle = computed(() => {
   return {
-    marginLeft: '18%',
+    marginLeft: '20%',
     marginRight: '18%',
     minHeight: '32rem',
   };
@@ -163,17 +153,21 @@ const imagesContainerStyle = computed(() => {
 // 計算文字的透明度和位移
 const textStyle = computed(() => {
   let opacity = 0;
-  let translateY = 60;
+  let translateY = 100; // 初始在下方
   
-  if (scrollProgress.value < 0.7) {
-    // 階段1和2: 文字完全隱藏
+  if (scrollProgress.value < 0.6) {
+    // 階段1: 文字完全隱藏在下方
     opacity = 0;
-    translateY = 60;
+    translateY = 100;
+  } else if (scrollProgress.value < 0.85) {
+    // 階段2: 文字逐漸從下方浮出 (0.6 到 0.85)
+    const phase2Progress = (scrollProgress.value - 0.6) / 0.25;
+    opacity = phase2Progress; // 從 0 淡入到 1
+    translateY = 100 * (1 - phase2Progress); // 從下方移動到圖片位置
   } else {
-    // 階段3: 文字逐漸浮出 (0.7 到 1.0)
-    const phase3Progress = (scrollProgress.value - 0.7) / 0.3;
-    opacity = Math.min(1, phase3Progress);
-    translateY = 60 * (1 - phase3Progress); // 從下方浮出
+    // 階段3: 文字完全顯示在圖片位置
+    opacity = 1;
+    translateY = 0;
   }
   
   return {
@@ -203,7 +197,7 @@ const handleScroll = () => {
     // Hero 已經開始離開視窗頂部
     // 修改計算方式：讓動畫在滾動約 40% 視窗高度時就完成
     // 這樣可以確保動畫在網頁正中間（視覺焦點）時就已經執行完畢
-    const targetDistance = windowHeight * 0.4;
+    const targetDistance = windowHeight * 0.3;
     progress = Math.abs(heroTop) / targetDistance;
     progress = Math.min(1, Math.max(0, progress));
   }
