@@ -40,7 +40,7 @@ export const HOT_EVENTS: EventCard[] = [
 export const QUARTERS_DATA: QuarterSection[] = [
   {
     id: "q1",
-    label: "Q1 第一季度",
+    label: "一~三月",
     isOpen: true,
     events: [
       {
@@ -76,7 +76,7 @@ export const QUARTERS_DATA: QuarterSection[] = [
   },
   {
     id: "q2",
-    label: "Q2 第二季度",
+    label: "四~六月",
     isOpen: false,
     events: [
       {
@@ -95,13 +95,13 @@ export const QUARTERS_DATA: QuarterSection[] = [
   },
   {
     id: "q3",
-    label: "Q3 第三季度",
+    label: "七~九月",
     isOpen: false,
     events: [],
   },
   {
     id: "q4",
-    label: "Q4 第四季度",
+    label: "十~十二月",
     isOpen: false,
     events: [],
   },

@@ -3,9 +3,18 @@
     <div class="text-center mb-8 scroll-reveal">
       <h2 class="quarterly-events-title">全年活動</h2>
     </div>
+    <div class="flex justify-center mb-12">
+      <div class="switcher-container">
+        <button class="switcher-btn" @click="(e) => switchTab(e.currentTarget as HTMLElement)">全部</button>
+        <button class="switcher-btn active" @click="(e) => switchTab(e.currentTarget as HTMLElement)">內部活動</button>
+        <button class="switcher-btn" @click="(e) => switchTab(e.currentTarget as HTMLElement)">外部活動</button>
+      </div>
+    </div>
 
-    <div style="margin-left: 9%; margin-right: 9%">
-      <div v-for="quarter in quarters" :key="quarter.id" class="border-b border-gray-300 pb-2">
+    <div></div>
+
+    <div style="margin-left: 9%; margin-right: 9%; font-family: Noto Sans TC">
+      <div v-for="quarter in quarters" :key="quarter.id" class="border-t border-gray-300 pb-2">
         <button
           @click="toggleQuarter(quarter.id)"
           class="w-full flex justify-between items-center py-4 text-jw-text font-bold text-lg hover:text-jw-teal transition-colors"
@@ -22,9 +31,7 @@
               :key="event.id"
               class="bg-[#FFF9C7] rounded-3xl overflow-hidden mb-8 last:mb-0 scroll-reveal-left"
             >
-              <div
-                class="relative w-full h-[400px] rounded-3xl overflow-hidden group"
-              >
+              <div class="relative w-full h-[400px] rounded-3xl overflow-hidden group">
                 <!-- Background & Overlay -->
                 <div
                   class="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-105"
@@ -38,10 +45,11 @@
                   class="absolute inset-0 p-6 md:p-10 flex flex-col md:flex-row justify-between items-start md:items-center text-white"
                 >
                   <div class="flex flex-col justify-between h-full">
-                    <h3 class="quarterly-event-title">
-                      {{ event.title }}<br />{{ event.titleSecond }}
-                    </h3>
-                    <p class="text-2xl md:text-4xl font-black opacity-90 italic tracking-widest" style="font-family: 'Mantou Sans';">
+                    <h3 class="quarterly-event-title">{{ event.title }}<br />{{ event.titleSecond }}</h3>
+                    <p
+                      class="text-2xl md:text-4xl font-black opacity-90 italic tracking-widest"
+                      style="font-family: 'Mantou Sans'"
+                    >
                       {{ event.dateRange }}
                     </p>
                   </div>
@@ -214,24 +222,31 @@ const expandEvent = (quarterId: string, eventId: string) => {
 const applyEvent = (id: string) => {
   // Logic for applying to event
 };
+const switchTab = (button: HTMLElement) => {
+  const buttons = button.parentElement?.querySelectorAll(".switcher-btn");
+  buttons?.forEach((btn) => btn.classList.remove("active"));
+  button.classList.add("active");
+  console.log(button.textContent);
+  // Here you can add logic to filter events based on the selected tab
+};
 </script>
 <style scoped>
 @font-face {
-  font-family: 'Mantou Sans';
-  src: url('~/assets/MantouSans-Regular.ttf') format('truetype');
+  font-family: "Mantou Sans";
+  src: url("~/assets/MantouSans-Regular.ttf") format("truetype");
   font-weight: 400;
   font-style: normal;
 }
 
 .quarterly-events-title {
-  font-family: 'Mantou Sans';
+  font-family: "Mantou Sans";
   font-style: normal;
   font-weight: 400;
   font-size: 40px;
   line-height: 87px;
   display: flex;
   align-items: center;
-  color: #0093AE;
+  color: #0093ae;
   justify-content: center;
   margin-bottom: 1.5rem;
 }
@@ -252,22 +267,22 @@ const applyEvent = (id: string) => {
 }
 
 .quarterly-event-title {
-  font-family: 'Mantou Sans';
+  font-family: "Mantou Sans";
   font-style: normal;
   font-weight: 400;
   font-size: 96px;
   line-height: 89px;
-  color: #FFFFFF;
+  color: #ffffff;
   margin-bottom: 0.5rem;
 }
-.button-label{
-  font-family: 'Mantou Sans';
+.button-label {
+  font-family: "Mantou Sans";
   font-style: normal;
   font-weight: 400;
   font-size: 24px;
   line-height: 35px;
   letter-spacing: 0.1em;
-  color: #FFFFFF;
+  color: #ffffff;
 }
 .apply-button {
   background: black;
@@ -276,8 +291,49 @@ const applyEvent = (id: string) => {
 }
 
 .apply-button:hover {
-  background: linear-gradient(135deg, #4DD0E1 0%, #AED581 100%);
+  background: linear-gradient(135deg, #4dd0e1 0%, #aed581 100%);
   border: 1px solid white;
   transform: scale(1.05);
+}
+/* 外層容器：藥丸形狀、藍色邊框、奶油色背景 */
+.switcher-container {
+  position: relative;
+  display: flex;
+  width: 100%;
+  max-width: 400px;
+  background-color: #fffbd5;
+  border-radius: 9999px; /* 完整的圓角 */
+  padding: 0;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+  /* 讓內部的按鈕也能服貼圓角 */
+  overflow: hidden;
+  font-family: Noto Sans TC;
+}
+
+/* 按鈕基本樣式 */
+.switcher-btn {
+  flex: 1; /* 均分寬度 */
+  border: none;
+  background: transparent;
+  padding: 12px 0;
+  font-size: 1.125rem; /* 18px */
+  font-weight: 700;
+  color: #008da8; /* 深青色文字 */
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  outline: none;
+  border-radius: 9999px; /* 確保選中時也是圓角 */
+  -webkit-tap-highlight-color: transparent;
+}
+
+.switcher-btn:hover {
+  background-color: rgba(255, 251, 213, 0.5);
+}
+
+/* 按鈕選中狀態 (Active) */
+.switcher-btn.active {
+  background-color: #54c4d0; /* 青綠色背景 */
+  color: white;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
 }
 </style>
