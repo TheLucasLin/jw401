@@ -1,13 +1,13 @@
 import type { EventCard, NavLink, QuarterSection } from "./types";
 
 export const NAV_LINKS: NavLink[] = [
-  { label: "嘉威40", href: "#" },
   { label: "嘉威人教室", href: "https://test.jwcpas.com.tw/course" },
   { label: "嘉威人報報", href: "https://test.jwcpas.com.tw/article" },
   { label: "服務項目", href: "https://test.jwcpas.com.tw/service" },
   { label: "關於嘉威", href: "https://test.jwcpas.com.tw/aboutus", hasDropdown: true },
   { label: "嘉威人大百科", href: "https://test.jwcpas.com.tw/Jiawei-people", hasDropdown: true },
   { label: "最新消息", href: "https://test.jwcpas.com.tw/news" },
+  { label: "嘉威40", href: "#" },
 ];
 
 export const HOT_EVENTS: EventCard[] = [
@@ -16,7 +16,7 @@ export const HOT_EVENTS: EventCard[] = [
     title: "高爾夫感謝盃-</br>北部場",
     date: "04/05",
     location: "北部場",
-    image: "https://picsum.photos/seed/golf1/400/300",
+    image: "https://picsum.photos/seed/golf2/400/300",
     type: "north",
   },
   {
@@ -35,6 +35,30 @@ export const HOT_EVENTS: EventCard[] = [
     image: "https://picsum.photos/seed/golf5/400/300",
     type: "south",
   },
+  {
+    id: "4",
+    title: "高爾夫感謝盃-</br>北部場",
+    date: "04/05",
+    location: "北部場",
+    image: "https://picsum.photos/seed/golf6/400/300",
+    type: "north",
+  },
+  {
+    id: "5",
+    title: "高爾夫感謝盃-</br>中部場",
+    date: "04/05",
+    location: "中部場",
+    image: "https://picsum.photos/seed/golf8/400/300",
+    type: "central",
+  },
+  {
+    id: "6",
+    title: "高爾夫感謝盃-</br>南部場",
+    date: "04/05",
+    location: "南部場",
+    image: "https://picsum.photos/seed/golf9/400/300",
+    type: "south",
+  },
 ];
 
 export const QUARTERS_DATA: QuarterSection[] = [
@@ -49,7 +73,7 @@ export const QUARTERS_DATA: QuarterSection[] = [
         titleSecond: "故事展", // 第二段title (最多兩段)
         dateRange: "03/01-12/31", // 活動日期區間
         image: "https://picsum.photos/seed/g1/800/300", // 活動圖
-        buttonLabel: "了解更多", // 展開活動的按鈕文字
+        buttonLabel: "展開看看", // 展開活動的按鈕文字
         expanded: false, // 是否展開活動內容
         description: "", // 活動描述
         haveData: false, // 是否有活動內容
@@ -58,10 +82,10 @@ export const QUARTERS_DATA: QuarterSection[] = [
       {
         id: "e2",
         title: "嘉Bar - ",
-        titleSecond: "愛你就要餵飽你",
+        titleSecond: "故事展",
         dateRange: "03/01-12/31",
         image: "https://picsum.photos/seed/g9/800/300",
-        buttonLabel: "了解更多",
+        buttonLabel: "展開看看",
         expanded: true,
         description:
           "四十年的歷程，像一場長遠的比賽，講究的是穩定、策略與信任。今年，我們邀請一路相伴的夥伴，共同參與一場別具意義的高爾夫盛會 ——「揮桿同行・40 週年感恩高爾夫日」。</br>活動將於清晨開球，在綠意盎然的球道間展開一整天的友誼競賽。無論是老朋友重逢，或新夥伴初識，我們都希望透過輕鬆愉快的揮桿時光，延續四十年的信任與合作精神。現場將設有品牌主題打卡區、精緻午宴與頒獎典禮，特別準備「感謝之桿」紀念禮，致敬每一位陪伴我們走過風雨的貴賓。",

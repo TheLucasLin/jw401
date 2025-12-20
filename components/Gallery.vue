@@ -9,6 +9,7 @@
         v-for="(events, idx) in GALLERY_IMAGES"
         :key="idx"
         class="relative rounded-2xl overflow-hidden group cursor-pointer gallery-item"
+        :class="{ 'hidden md:block': idx >= 3 && !isExpanded }"
         @click="navigateTo(events.link)"
       >
         <div
@@ -23,17 +24,29 @@
         <!-- Text Content -->
         <div class="absolute inset-0 p-6 flex flex-col justify-between">
           <h3 class="gallery-event-title">
-            {{ events.label }}<br />{{ events.label2 }}
+            {{ events.label }}<br class="hidden md:block" />{{ events.label2 }}
           </h3>
           <span class="gallery-date-range">{{ events.dateRange }}</span>
         </div>
       </div>
     </div>
+
+    <div v-if="GALLERY_IMAGES.length > 3" class="flex justify-center mt-8 md:hidden">
+      <a href="#" @click.prevent="isExpanded = !isExpanded" class="expand-btn flex items-center gap-1">
+        <span>{{ isExpanded ? '收起' : '展開看更多' }}</span>
+        <ChevronUp v-if="isExpanded" />
+        <ChevronDown v-else />
+      </a>
+    </div>
   </section>
 </template>
 
 <script setup lang="ts">
+import { ref } from 'vue';
+import { ChevronDown, ChevronUp } from "lucide-vue-next";
 import { GALLERY_IMAGES } from "~/utils/constants";
+
+const isExpanded = ref(false);
 </script>
 
 <style scoped>
@@ -77,5 +90,13 @@ import { GALLERY_IMAGES } from "~/utils/constants";
 .gallery-item {
   width: 400px;
   height: 300px;
+}
+
+.expand-btn {
+  font-family: 'Noto Sans TC';
+  font-size: 20px;
+  color: #0093AE;
+  transition: all 0.3s ease;
+  font-weight: 900;
 }
 </style>

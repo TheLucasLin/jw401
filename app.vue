@@ -1,19 +1,8 @@
 <template>
-  <div class="min-h-screen bg-[#FCF1A1] font-sans selection:bg-jw-cyan selection:text-jw-darkTeal">
-    <Header />
-    <main class="pt-[74px]">
-      <Hero />
-      <HotEvents />
-      <QuarterlyEvents />
-      <RunningBanner />
-      <Gallery />
-    </main>
-    <Footer />
-  </div>
+  <NuxtPage />
 </template>
 
 <script setup lang="ts">
-// Nuxt auto-imports components from ./components
 </script>
 
 <style>

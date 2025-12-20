@@ -1,6 +1,95 @@
 <template>
-  <footer class="w-full bg-jw-darkTeal text-white py-12 font-sans" style="padding: 2% 16%">
-    <div class="mx-auto grid grid-cols-1 md:grid-cols-12">
+  <footer class="w-full bg-jw-darkTeal text-white py-8 md:py-12 font-sans px-6 md:px-[16%]">
+    <!-- Mobile Layout -->
+    <div class="flex flex-col md:hidden space-y-6">
+      <!-- Row 1: Logo + Social Icons -->
+      <div class="flex items-center justify-between">
+        <img src="~/assets/footer_logo.png" alt="JW Logo" class="h-10 w-auto" />
+        <div class="flex gap-3">
+          <a href="#" class="hover:opacity-80 transition-opacity">
+            <img src="~/assets/fbWhite.svg" alt="Facebook" class="h-7 w-7" />
+          </a>
+          <a href="#" class="hover:opacity-80 transition-opacity">
+            <img src="~/assets/igWhite.svg" alt="Instagram" class="h-7 w-7" />
+          </a>
+          <a href="#" class="hover:opacity-80 transition-opacity">
+            <img src="~/assets/lineWhite.svg" alt="Line" class="h-7 w-7" />
+          </a>
+        </div>
+      </div>
+
+      <!-- Row 2: Company Name -->
+      <div>
+        <div class="font-bold text-lg tracking-wide">嘉威聯合會計師事務所</div>
+        <div class="text-xs opacity-80 mt-1">Jia Wei & Co., CPAs</div>
+      </div>
+
+      <!-- Row 3: Navigation Links (horizontal wrap) -->
+      <div class="flex flex-wrap gap-x-4 gap-y-2 text-sm text-white">
+        <a href="https://www.jwcpas.com.tw/about.php" class="hover:opacity-80 transition-opacity">關於嘉威</a>
+        <a href="https://www.jwcpas.com.tw/contact2.php" class="hover:opacity-80 transition-opacity">聯絡嘉威</a>
+        <a href="https://www.jwcpas.com.tw/partner.php" class="hover:opacity-80 transition-opacity">國際聯盟所</a>
+        <a href="https://www.jwcpas.com.tw/addint.php" class="hover:opacity-80 transition-opacity">成為嘉威人</a>
+        <a href="#" class="hover:opacity-80 transition-opacity">網站地圖</a>
+      </div>
+
+      <!-- Row 4: Newsletter -->
+      <div class="bg-white rounded-full p-1 pl-4 flex items-center">
+        <input
+          type="email"
+          placeholder="您的電子信箱"
+          class="bg-transparent flex-1 outline-none text-gray-600 placeholder-gray-400 text-sm"
+        />
+        <button
+          class="bg-[#66C2C6] text-white px-5 py-2 rounded-full text-sm font-bold hover:bg-[#5bb0b4] transition-colors whitespace-nowrap"
+        >
+          訂閱電子報
+        </button>
+      </div>
+
+      <!-- Row 5: Checkbox -->
+      <div class="flex items-start gap-3 text-[12px] text-white">
+        <div class="relative flex items-center mt-0.5">
+          <input
+            type="checkbox"
+            class="peer h-4 w-4 cursor-pointer appearance-none rounded-full border border-white checked:bg-white checked:border-transparent transition-all"
+          />
+          <Check
+            class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-3 h-3 text-white opacity-0 peer-checked:opacity-100 pointer-events-none"
+            stroke-width="3"
+          />
+        </div>
+        <label class="leading-relaxed cursor-pointer"
+          >同意接收有關課程資訊、新知文章與更多資訊。訂閱即表示您已閱讀並同意我們的<a href="#" class="underline"
+            >隱私條款</a
+          >。</label
+        >
+      </div>
+
+      <!-- Row 6: Certifications -->
+      <div class="flex items-center justify-center gap-6 py-4">
+        <img src="~/assets/other_logo.png" alt="Certifications" class="h-14 w-auto" />
+      </div>
+
+      <!-- Row 7: Contact Info -->
+      <div class="text-sm text-white space-y-1">
+        <p><a href="tel:0222995888" class="underline">Tel. 02 2299 5888</a></p>
+        <p>[總所] 新北市五股區五工五路28號</p>
+      </div>
+
+      <!-- Row 8: Terms -->
+      <div class="text-xs text-white/60 flex items-center gap-2">
+        <a href="#" class="hover:text-white transition-colors">服務條款</a>
+        <span class="w-[1px] h-3 bg-white/40"></span>
+        <a href="#" class="hover:text-white transition-colors">隱私權政策</a>
+      </div>
+
+      <!-- Row 9: Copyright -->
+      <div class="text-xs text-white/60">Copyright © 2022 嘉威聯合會計師事務所. All rights reserved.</div>
+    </div>
+
+    <!-- Desktop Layout -->
+    <div class="hidden md:grid md:grid-cols-12">
       <!-- Left Column (Logo & Contact) -->
       <div class="md:col-span-4 flex flex-col justify-between space-y-8">
         <div>

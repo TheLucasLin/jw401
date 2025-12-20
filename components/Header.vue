@@ -1,20 +1,31 @@
 <template>
-  <header class="w-full bg-[#bbf3f5] fixed top-0 z-[100]" style="height: 74px">
+  <header
+    class="w-full bg-[#bbf3f5] fixed top-0 z-[100] flex justify-between items-center lg:block"
+    style="height: 74px"
+  >
     <!-- Top Utility Bar -->
-    <div class="w-full bg-[#bbf3f5] flex justify-end px-8" style="margin-bottom: -10px">
+    <div class="w-full bg-[#bbf3f5] hidden lg:flex justify-end px-8" style="margin-bottom: -10px">
       <div
         class="bg-white/90 backdrop-blur-sm rounded-bl-lg rounded-br-lg px-4 py-1.5 flex items-center justify-end gap-4 text-xs text-gray-600 shadow-sm"
         style="width: 210px"
       >
-        <a href="https://www.jwcpas.com.tw/memberAdd.php" class="hover:text-jw-teal transition-colors text-jw-darkTeal font-medium">加入會員</a>
-        <a href="https://www.jwcpas.com.tw/login.php" class="hover:text-jw-teal transition-colors text-jw-darkTeal font-medium">會員登入</a>
+        <a
+          href="https://www.jwcpas.com.tw/memberAdd.php"
+          class="hover:text-jw-teal transition-colors text-jw-darkTeal font-medium"
+          >加入會員</a
+        >
+        <a
+          href="https://www.jwcpas.com.tw/login.php"
+          class="hover:text-jw-teal transition-colors text-jw-darkTeal font-medium"
+          >會員登入</a
+        >
         <button class="flex items-center gap-1 bg-gray-100 hover:bg-gray-200 rounded px-2 py-0.5 transition-colors">
           <span class="font-bold text-gray-800">中</span>
           <span class="text-gray-400">En</span>
         </button>
       </div>
     </div>
-    <div class="flex justify-between items-center" style="padding-left: 18%; padding-right: 18%">
+    <div class="flex justify-between items-center md:pl-[18%] md:pr-[18%] pl-[10%] pr-[1%]">
       <!-- Logo Area -->
       <!-- Logo Icon -->
       <div class="flex items-center">

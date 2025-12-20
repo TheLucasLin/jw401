@@ -1,18 +1,18 @@
 <template>
-  <div 
+  <div
     ref="heroSection"
-    class="pb-24" 
-    style="background: linear-gradient(180deg, #8aebed 0%, #fcf1a1 100%); min-height: 100vh;padding-top: 160px;"
+    class="pb-24"
+    style="background: linear-gradient(180deg, #8aebed 0%, #fcf1a1 100%); min-height: 100vh; padding-top: 160px"
   >
     <!-- Images Container with Scroll Effect -->
     <!-- Images and Text Container with Scroll Effect -->
-    <div 
+    <div
       ref="imagesContainer"
       class="flex items-center justify-center transition-all duration-500 pt-[200px]"
       :style="imagesContainerStyle"
     >
       <!-- Left side: Image that fades out and moves up, replaced by text -->
-      <div class="relative" style="width: 521px; min-height: 18rem;">
+      <div class="relative" style="width: 521px; min-height: 18rem">
         <!-- 40 Year Logo - fades out and moves up -->
         <img
           ref="leftImage"
@@ -21,17 +21,13 @@
           class="h-[18rem] w-auto object-contain drop-shadow-xl transition-all duration-700 absolute"
           :style="leftImageStyle"
         />
-        
+
         <!-- Text Content - fades in and moves to image position -->
-        <div 
-          ref="textContent"
-          class="transition-all duration-1000 absolute"
-          :style="textStyle"
-        >
+        <div ref="textContent" class="transition-all duration-1000 absolute" :style="textStyle">
           <span
             style="
               color: var(--JW-Blue2, #0093ae);
-              font-size: 20px;
+              font-size: 18px;
               font-family: Noto Sans TC;
               font-weight: 400;
               line-height: 38.4px;
@@ -42,7 +38,7 @@
           ><span
             style="
               color: var(--JW-Blue2, #0093ae);
-              font-size: 20px;
+              font-size: 18px;
               font-family: Noto Sans TC;
               font-weight: 700;
               line-height: 38.4px;
@@ -53,7 +49,7 @@
           ><span
             style="
               color: var(--JW-Blue2, #0093ae);
-              font-size: 20px;
+              font-size: 18px;
               font-family: Noto Sans TC;
               font-weight: 400;
               line-height: 38.4px;
@@ -64,7 +60,7 @@
           >
         </div>
       </div>
-      
+
       <!-- Right side: Mascot with original animation -->
       <img
         ref="rightImage"
@@ -78,7 +74,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref, onMounted, onUnmounted, computed } from 'vue';
+import { computed, onMounted, onUnmounted, ref } from "vue";
 
 // Refs
 const heroSection = ref<HTMLElement | null>(null);
@@ -90,6 +86,14 @@ const textContent = ref<HTMLElement | null>(null);
 // 滾動進度 (0 到 1)
 const scrollProgress = ref(0);
 
+// 是否為手機模式
+const isMobile = ref(false);
+
+// 檢測是否為手機模式
+const checkMobile = () => {
+  isMobile.value = window.innerWidth < 768;
+};
+
 // 動畫階段定義
 // 階段1 (0-0.6): 吉祥物從滿版逐漸縮小，Logo 保持可見
 // 階段2 (0.6-0.85): Logo 向上滑動淡出，文字從下方淡入
@@ -97,9 +101,17 @@ const scrollProgress = ref(0);
 
 // 計算左側圖片 (40年 logo) 的樣式
 const leftImageStyle = computed(() => {
+  // 手機模式：直接隱藏 logo，顯示文字
+  if (isMobile.value) {
+    return {
+      opacity: 0,
+      transform: "translateY(-150px)",
+    };
+  }
+
   let opacity = 1;
   let translateY = 0;
-  
+
   if (scrollProgress.value < 0.6) {
     // 階段1: logo 保持完全可見
     opacity = 1;
@@ -114,7 +126,7 @@ const leftImageStyle = computed(() => {
     opacity = 0;
     translateY = -150;
   }
-  
+
   return {
     opacity: opacity,
     transform: `translateY(${translateY}px)`,
@@ -123,9 +135,16 @@ const leftImageStyle = computed(() => {
 
 // 計算右側圖片 (吉祥物) 的樣式
 const rightImageStyle = computed(() => {
+  // 手機模式：直接顯示最終狀態
+  if (isMobile.value) {
+    return {
+      transform: "translateX(0px) scale(1)",
+    };
+  }
+
   let translateX = 0;
   let scale = 3.0; // 初始放大,滿版效果
-  
+
   if (scrollProgress.value < 0.25) {
     // 階段1: 吉祥物從滿版逐漸縮小 (0 到 0.25)
     const phase1Progress = scrollProgress.value / 0.25;
@@ -136,7 +155,7 @@ const rightImageStyle = computed(() => {
     scale = 1.0;
     translateX = 0;
   }
-  
+
   return {
     transform: `translateX(${translateX}px) scale(${scale})`,
   };
@@ -144,17 +163,25 @@ const rightImageStyle = computed(() => {
 
 const imagesContainerStyle = computed(() => {
   return {
-    marginLeft: '20%',
-    marginRight: '18%',
-    minHeight: '32rem',
+    marginLeft: "20%",
+    marginRight: "18%",
+    minHeight: "32rem",
   };
 });
 
 // 計算文字的透明度和位移
 const textStyle = computed(() => {
+  // 手機模式：直接顯示文字
+  if (isMobile.value) {
+    return {
+      opacity: 1,
+      transform: "translateY(0px)",
+    };
+  }
+
   let opacity = 0;
   let translateY = 100; // 初始在下方
-  
+
   if (scrollProgress.value < 0.6) {
     // 階段1: 文字完全隱藏在下方
     opacity = 0;
@@ -169,7 +196,7 @@ const textStyle = computed(() => {
     opacity = 1;
     translateY = 0;
   }
-  
+
   return {
     opacity: opacity,
     transform: `translateY(${translateY}px)`,
@@ -184,15 +211,15 @@ const handleScroll = () => {
   const heroRect = heroSection.value.getBoundingClientRect();
   const heroTop = heroRect.top;
   const heroHeight = heroRect.height;
-  
+
   // 獲取視窗高度
   const windowHeight = window.innerHeight;
-  
+
   // 計算滾動進度
   // 當 Hero 在視窗頂部時,progress = 0
   // 當 Hero 完全離開視窗時,progress = 1
   let progress = 0;
-  
+
   if (heroTop <= 0) {
     // Hero 已經開始離開視窗頂部
     // 修改計算方式：讓動畫在滾動約 40% 視窗高度時就完成
@@ -201,22 +228,29 @@ const handleScroll = () => {
     progress = Math.abs(heroTop) / targetDistance;
     progress = Math.min(1, Math.max(0, progress));
   }
-  
+
   scrollProgress.value = progress;
 };
 
 // 生命週期鉤子
 onMounted(() => {
+  // 檢測是否為手機模式
+  checkMobile();
+
+  // 監聽視窗大小變化
+  window.addEventListener("resize", checkMobile);
+
   // 初始化時檢查一次
   handleScroll();
-  
+
   // 添加滾動事件監聽
-  window.addEventListener('scroll', handleScroll, { passive: true });
+  window.addEventListener("scroll", handleScroll, { passive: true });
 });
 
 onUnmounted(() => {
   // 移除滾動事件監聽
-  window.removeEventListener('scroll', handleScroll);
+  window.removeEventListener("scroll", handleScroll);
+  window.removeEventListener("resize", checkMobile);
 });
 </script>
 
