@@ -109,11 +109,15 @@ const leftImageStyle = computed(() => {
     };
   }
 
-  let opacity = 1;
+  let opacity = 0; // 預設不顯示
   let translateY = 0;
 
-  if (scrollProgress.value < 0.6) {
-    // 階段1: logo 保持完全可見
+  if (scrollProgress.value === 0) {
+    // 未滾動時：隱藏 logo
+    opacity = 0;
+    translateY = 0;
+  } else if (scrollProgress.value < 0.6) {
+    // 階段1: 一開始滾動就顯示，logo 保持完全可見
     opacity = 1;
     translateY = 0;
   } else if (scrollProgress.value < 0.85) {
