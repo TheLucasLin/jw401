@@ -1,6 +1,6 @@
 <template>
   <div class="flex items-center justify-center p-4 overflow-hidden" style="font-family: Mantou Sans">
-    <div class="w-full max-w-7xl relative">
+    <div class="w-full relative pl-[60px]">
       <!-- 
           The Teal Horizontal Bar 
           Positioned absolute to sit behind the content but visually in the middle.
@@ -26,7 +26,7 @@
           <div class="mt-2 flex flex-col gap-2 w-full px-4">
             <div class="flex items-center gap-3" style="padding-left: 50px">
               <span class="w-2 h-2 rounded-full bg-[#0097A7] shrink-0"></span>
-              <span class="text-[#00838F] text-xl md:text-2xl tracking-wide" style="width: 150px"> 感恩故事展 </span>
+              <span class="text-[#00838F] text-xl md:text-2xl tracking-wide"> 感恩故事展 </span>
             </div>
             <div class="flex items-center gap-3" style="padding-left: 50px">
               <span class="w-2 h-2 rounded-full bg-[#0097A7] shrink-0"></span>
@@ -102,9 +102,7 @@
             </div>
             <div class="flex items-center gap-3" style="padding-left: 50px">
               <span class="w-2 h-2 rounded-full bg-[#0097A7] shrink-0"></span>
-              <span class="text-[#00838F] text-xl md:text-2xl tracking-wide" style="width: 150px">
-                高爾夫感謝盃
-              </span>
+              <span class="text-[#00838F] text-xl md:text-2xl tracking-wide" style="width: 150px"> 高爾夫感謝盃 </span>
             </div>
           </div>
         </div>
